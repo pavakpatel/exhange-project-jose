@@ -25,17 +25,26 @@ var slider = document.getElementById('yearSlider'),
     yearinfo = document.getElementById('yearinfo');
 
 // On slider change, update information
-// On slider change, update information
 slider.oninput = function() {
-  var year = this.value,
-      exchangeIndex = years.indexOf(+year);
+  var year = this.value;
 
-  if (exchangeIndex != -1) {
-    // Append new exchange info onto existing content
-    exchangeInfo.innerHTML += exchanges[exchangeIndex] + "<br/>";
-    yearinfo.textContent = year;
+  // Clear old info
+  exchangeInfo.innerHTML = "";
+
+  // Display all exchanges founded up to the selected year
+  for(var i = 0; i < years.length; i++) {
+    if(years[i] <= +year) {
+      exchangeInfo.innerHTML += exchanges[i] + "<br/>";
+    }
+    else {
+      break;
+    }
   }
+
+  // Update displayed year
+  yearinfo.textContent = "As of " + year;
 }
+
 
 
   
