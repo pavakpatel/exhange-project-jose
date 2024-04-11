@@ -41,7 +41,7 @@ slider.oninput = function() {
       // Create a new div with class 'heading'
       var newDiv = document.createElement("div");
       newDiv.className = "heading";
-      newDiv.textContent = exchanges[i];
+      newDiv.textContent = exchanges[i] + " (" + years[i] + ")";
 
       // Append the new div to exchangeInfo
       exchangeInfo.appendChild(newDiv);
